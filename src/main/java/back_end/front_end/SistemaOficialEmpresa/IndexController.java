@@ -10,14 +10,40 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class IndexController {
 
+    private final String validUser = "Werick Santos";
+    private final String validPass = "Werick7santos@gmail.com";
+
+    // Página de login (GET)
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login"; // retorna login.html
+    }
+
+    // Processa o login (POST)
+    @PostMapping("/login")
+    public String handleLogin(@RequestParam String user,
+                              @RequestParam String pass,
+                              RedirectAttributes redirectAttributes) {
+        if (user.equals(validUser) && pass.equals(validPass)) {
+            // Login correto, redireciona para a pagina princal q e o /index
+            return "redirect:/index";
+        } else {
+            // Login incorreto, volta para a pagina login com mensagem de erro
+            redirectAttributes.addFlashAttribute("message", "Usuário ou senha incorretos.");
+            redirectAttributes.addFlashAttribute("status", "error");
+            return "redirect:/login";
+        }
+    }
+
+    // Página inicial depois do login
     @GetMapping("/")
     public String home() {
-        return "home"; // renders src/main/resources/templates/home.html
+        return "home"; // home.html
     }
 
     @GetMapping("/index")
     public String index(Model model) {
-        return "index"; // renders src/main/resources/templates/index.html
+        return "index"; // index.html
     }
 
     @PostMapping("/index")
@@ -35,4 +61,5 @@ public class IndexController {
         redirectAttributes.addFlashAttribute("status", "success");
         return "redirect:/index";
     }
+
 }
