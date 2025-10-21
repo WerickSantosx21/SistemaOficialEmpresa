@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class IndexController {
 
     private final String validUser = "Werick Santos";
-    private final String validPass = "Werick7santos@gmail.com";
+    private final String validPass = "werick123";
 
     // Página de login (GET)
     @GetMapping("/login")
