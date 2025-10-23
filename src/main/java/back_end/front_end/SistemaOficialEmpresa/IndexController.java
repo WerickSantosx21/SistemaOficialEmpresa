@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
 public class IndexController {
+
 
     private final String validUser = "Werick Santos";
     private final String validPass = "werick123";
@@ -38,7 +40,7 @@ public class IndexController {
     // Página inicial depois do login
     @GetMapping("/")
     public String home() {
-        return "home"; // home.html
+        return "redirect:/login"; // home.html
     }
 
     @GetMapping("/index")

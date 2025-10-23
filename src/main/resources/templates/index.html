@@ -5,33 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Index - Formulário</title>
     <style>
-      .error {
-        color: red;
+     *{
+        background-image: url(../imagens/imagemsistema.png);
+        background-size: cover;
       }
-      .success {
-        color: green;
+      img{
+       background-image: url(../imagens/imagemsistema.png);
       }
+     
     </style>
   </head>
   <body>
-    <h1>Formulário de Contato (Java)</h1>
+    <img src="../imagens/imagemsistema.png" alt="imagen do home"/>
 
     
-
-    <div th:if="${message}">
-      <p th:text="${message}" th:classappend=" ${status}"></p>
-    </div>
-
-    <form th:action="@{/index}" method="post">
-      <label for="name">Nome:</label><br />
-      <input type="text" id="name" name="name" /><br /><br />
-
-      <label for="email">E-mail:</label><br />
-      <input type="email" id="email" name="email" /><br /><br />
-
-      <button type="submit">Enviar</button>
-    </form>
-
-    <p><a th:href="@{/}">Voltar para Home</a></p>
+    <li> <a> Home </a></li>
+    <li> <a> Funcionarios </a></li>
+    <li> <a> Produtos </a></li>
+    <li> <a> Cliente </a></li>
+    <li> <a> Vendas </a></li>
+    <li> <a> Sobre </a></li>
+    
+    
+   
   </body>
 </html>
